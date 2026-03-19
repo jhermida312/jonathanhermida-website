@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Jonathan Hermida Executive & Leadership Coaching</title>
+  <meta name="description" content="Learn about Jonathan Hermida — three-time founder, executive leader, and transformational coach helping senior leaders live and lead with presence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* =====================
+       DESIGN TOKENS
+    ===================== */
+    :root {
+      --bg:           #FAFAF7;
+      --bg-warm:      #F3EDE4;
+      --bg-dark:      #1C1A17;
+      --text:         #1C1A17;
+      --text-muted:   #6B6358;
+      --accent:       #B8966E;
+      --accent-light: #E8DDD0;
+      --white:        #FFFFFF;
+      --serif:        'Cormorant Garamond', Georgia, serif;
+      --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max:          1120px;
+      --nav-h:        70px;
+    }
+
+    /* =====================
+       RESET
+    ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* =====================
+       TYPOGRAPHY
+    ===================== */
+    h1, h2, h3, h4 {
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+    h1 { font-size: clamp(3rem, 6vw, 5.2rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
+    h3 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); }
+    p  { font-size: 1.0625rem; line-height: 1.8; color: var(--text-muted); }
+
+    /* =====================
+       UTILITIES
+    ===================== */
+    .wrap  { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .sec   { padding: 110px 0; }
+
+    .label {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.75rem;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+    }
+    .btn-dark {
+      background: var(--text);
+      color: var(--white);
+    }
+    .btn-dark:hover { background: var(--accent); transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      border: 1.5px solid currentColor;
+      color: var(--text);
+    }
+    .btn-ghost:hover { background: var(--text); color: var(--white); }
+
+    /* =====================
+       NAV
+    ===================== */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: var(--nav-h);
+      background: rgba(250,250,247,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(184,150,110,0.1);
+      transition: box-shadow 0.3s;
+    }
+    #nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-logo img {
+      height: 42px;
+      width: auto;
+      mix-blend-mode: multiply;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+      margin-left: auto;
+      margin-right: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: all 0.3s;
+    }
+
+    /* =====================
+       PAGE HERO
+    ===================== */
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 80px);
+      padding-bottom: 80px;
+      background: var(--bg-warm);
+    }
+    .page-hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .page-hero h1 { margin-bottom: 1.5rem; }
+    .page-hero h1 em { font-style: italic; font-weight: 300; }
+    .page-hero > .page-hero-inner > .page-hero-text > p {
+      font-size: 1.125rem;
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+    .page-hero-photo {
+      position: relative;
+      height: 580px;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .page-hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .page-hero-deco {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 120px;
+      height: 120px;
+      border: 2px solid var(--accent);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    /* =====================
+       STORY SECTION
+    ===================== */
+    .story-section {
+      padding: 110px 0;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .story-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 2rem);
+    }
+    .story-sidebar h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      margin-bottom: 1.5rem;
+    }
+    .story-sidebar .sidebar-line {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .story-body p {
+      margin-bottom: 1.5rem;
+    }
+    .story-body p:last-child { margin-bottom: 0; }
+
+    /* =====================
+       VALUES / PILLARS
+    ===================== */
+    .pillars-section {
+      background: var(--bg-dark);
+      padding: 110px 0;
+    }
+    .pillars-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .pillars-header h2 { color: var(--white); }
+    .pillars-header p { color: rgba(255,255,255,0.55); margin-top: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 3rem 2.5rem;
+    }
+    .pillar-num {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--accent);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+    .pillar h3 {
+      color: var(--white);
+      font-size: 1.4rem;
+      margin-bottom: 0.875rem;
+    }
+    .pillar p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9375rem;
+    }
+
+    /* =====================
+       PHOTO BREAKS
+    ===================== */
+    .photo-break {
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      position: relative;
+    }
+    .dark-photo-break { background: var(--bg-dark); }
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .photo-placeholder-label {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-warm);
+      font-family: var(--sans);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .photo-placeholder.placeholder-fallback img { display: none; }
+    .photo-placeholder.placeholder-fallback .photo-placeholder-label { display: flex; }
+
+    /* =====================
+       JOURNEY SECTION
+    ===================== */
+    .journey-section { background: var(--bg); }
+    .journey-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+    .journey-intro {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .journey-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .journey-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .journey-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.6em;
+    }
+    .lowlights-list li::before { background: var(--text-muted); }
+    .journey-close {
+      margin-top: 2rem;
+      font-style: italic;
+      color: var(--text);
+    }
+    .journey-col h2 { margin-bottom: 0.75rem; }
+
+    /* =====================
+       WHAT DRIVES ME
+    ===================== */
+    .drives-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .drives-copy h2 { margin-bottom: 1.25rem; }
+    .drives-copy > p { margin-bottom: 1.25rem; }
+    .drives-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .drives-list li {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--accent-light);
+    }
+    .drives-list li strong { color: var(--text); font-weight: 600; }
+    .drives-close {
+      font-style: italic;
+      color: var(--text-muted);
+      margin-top: 0;
+    }
+    .speaking-photo-wrap {
+      position: relative;
+      height: 560px;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .speaking-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .speaking-photo-wrap .photo-placeholder-label {
+      background: var(--bg-warm);
+    }
+    .speaking-photo-wrap.placeholder-fallback img { display: none; }
+    .speaking-photo-wrap.placeholder-fallback .photo-placeholder-label { display: flex; }
+
+    /* =====================
+       CREDENTIALS STRIP
+    ===================== */
+    .credentials-section {
+      padding: 80px 0;
+      background: var(--bg-warm);
+    }
+    .credentials-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .cred-item {
+      padding: 2.5rem 2rem;
+      background: var(--white);
+      text-align: center;
+    }
+    .cred-num {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .cred-num em { font-style: normal; color: var(--accent); }
+    .cred-label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* =====================
+       OTHER WAYS I SERVE
+    ===================== */
+    .serve-section { background: var(--bg); }
+    .serve-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .serve-header h2 { margin-top: 0.5rem; }
+    .serve-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .serve-card {
+      background: var(--bg-warm);
+      border: 1px solid var(--accent-light);
+      border-radius: 2px;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .serve-logo {
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+    .serve-logo img {
+      max-height: 80px;
+      width: auto;
+      object-fit: contain;
+    }
+    .serve-podcast-img {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 2px;
+      position: relative;
+      background: var(--bg-dark);
+    }
+    .serve-podcast-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .podcast-fallback-label {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--white);
+      text-align: center;
+      padding: 1rem;
+    }
+    .serve-podcast-img.podcast-fallback img { display: none; }
+    .serve-podcast-img.podcast-fallback .podcast-fallback-label { display: flex; }
+    .serve-card h3 {
+      font-size: 1.4rem;
+      color: var(--text);
+      margin: 0;
+    }
+    .serve-card p { margin: 0; }
+    .serve-card .btn { margin-top: auto; }
+
+    @media (max-width: 768px) {
+      .serve-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =====================
+       PULL QUOTE
+    ===================== */
+    .pull-quote {
+      background: var(--bg-dark);
+      padding: 60px 0;
+    }
+    .pull-quote-inner {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .pq-mark {
+      font-family: var(--serif);
+      font-size: 6rem;
+      line-height: 0.8;
+      color: var(--accent);
+      opacity: 0.5;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .pq-text blockquote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      line-height: 1.4;
+      color: var(--white);
+    }
+    .pq-text cite {
+      display: block;
+      font-style: normal;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 0.875rem;
+    }
+
+    /* =====================
+       CTA SECTION
+    ===================== */
+    .cta-section {
+      padding: 110px 0;
+      text-align: center;
+    }
+    .cta-section h2 { margin-bottom: 1.25rem; }
+    .cta-section p { max-width: 480px; margin: 0 auto 2.5rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* =====================
+       FOOTER
+    ===================== */
+    footer {
+      background: var(--bg-dark);
+      padding: 60px 0 40px;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-logo img {
+      height: 36px;
+      width: auto;
+      mix-blend-mode: screen;
+      opacity: 0.8;
+    }
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* =====================
+       FADE-IN
+    ===================== */
+    .fade {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* =====================
+       MOBILE NAV OVERLAY
+    ===================== */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: var(--nav-h) 0 0 0;
+        background: var(--bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 199;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.25rem; }
+      #nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      .page-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .page-hero-photo { height: 420px; }
+      .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .story-sidebar { position: static; }
+      .journey-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .drives-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .speaking-photo-wrap { height: 380px; }
+      .photo-break { height: 300px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .credentials-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     NAV
+══════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="jh-logo-web.jpg" alt="Jonathan Hermida">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+    </ul>
+    <a href="index.html#contact" class="btn btn-dark" id="nav-cta">Reach Out</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════
+     PAGE HERO
+══════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-text">
+      <span class="label">About Jonathan</span>
+      <h1>Husband. Father.<br><em>Leader. Coach.</em></h1>
+      <p>Though I wear many different hats, my commitment to each is the same: to embody the highest version of myself and help those around me do the same.</p>
+      <a href="index.html#contact" class="btn btn-dark">Work With Me</a>
+    </div>
+    <div class="page-hero-photo">
+      <img src="Jonathan-challenges-web.jpg" alt="Jonathan Hermida">
+      <div class="page-hero-deco"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     OPENING
+══════════════════════════════════ -->
+<section class="story-section">
+  <div class="wrap">
+    <div class="story-grid">
+
+      <div class="story-sidebar fade">
+        <span class="label">My Story</span>
+        <h2>One Decision That Changed Everything</h2>
+        <div class="sidebar-line"></div>
+        <p>There's really only one decision I feel I've ever truly made in my life.</p>
+      </div>
+
+      <div class="story-body fade">
+        <p>At 23, I quit a corporate job I had just been promoted into and took off to backpack through South America for a year.</p>
+        <p>Every "decision" before that felt like an unconscious unfolding — shaped by past traumas, societal expectations, and the avoidance of discomfort. Every "decision" after was more of a saying yes to the opportunities life was putting in front of me…opportunities for indescribable healing, growth and learning…than they were actual decisions based off careful analysis.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     TRAVEL PHOTO
+══════════════════════════════════ -->
+<div class="photo-break">
+  <div class="photo-placeholder travel-photo fade">
+    <!-- REPLACE: drag your travel photo here and update src below -->
+    <img src="jonathan-travel.jpg" alt="Jonathan on his travels" onerror="this.parentElement.classList.add('placeholder-fallback')">
+    <div class="photo-placeholder-label">📷 Travel photo — drop your image here</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     MY JOURNEY
+══════════════════════════════════ -->
+<section class="journey-section sec">
+  <div class="wrap">
+    <div class="journey-grid">
+
+      <div class="journey-col fade">
+        <span class="label">My Journey</span>
+        <h2>The Highlights</h2>
+        <p class="journey-intro">Since that moment I've…</p>
+        <ul class="journey-list">
+          <li>Lived on four continents and travelled to more than 50 countries.</li>
+          <li>Invested tens of thousands of hours and double the amount of money on coaches, retreats, courses, trainings, workshops, classes, seminars, books…you name it, I've done it.</li>
+          <li>Worked with corporate America (instead of in corporate America), running dozens of workshops for Fortune 500 companies.</li>
+          <li>Been a freelancer, business owner and entrepreneur, founding three businesses.</li>
+          <li>Facilitated a dozen retreats, run hundreds of online workshops, and started two podcasts.</li>
+          <li>Coached hundreds of executives, entrepreneurs, leaders and professionals.</li>
+          <li>Taught and mentored hundreds of aspiring coaches.</li>
+          <li>Become a husband, a father, and a homeowner.</li>
+        </ul>
+      </div>
+
+      <div class="journey-col lowlights fade">
+        <span class="label" style="color:var(--text-muted);">The Full Picture</span>
+        <h2>The Lowlights</h2>
+        <p class="journey-intro">Of course, those are the highlights. Since that moment I've also…</p>
+        <ul class="journey-list lowlights-list">
+          <li>Lost my mom to cancer.</li>
+          <li>Dealt with family members struggling with addiction.</li>
+          <li>Experienced pain and hurt.</li>
+          <li>Felt lost, confused and depressed.</li>
+          <li>Doubted myself.</li>
+          <li>Had carefully thought out plans blow up in my face.</li>
+          <li>Made several business and personal mistakes.</li>
+        </ul>
+        <p class="journey-close">All that I've experienced, acquired and accomplished has come from that fateful decision that young man made 16+ years ago. And for that, I'm eternally grateful to him.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     FAMILY PHOTO
+══════════════════════════════════ -->
+<div class="photo-break dark-photo-break">
+  <div class="photo-placeholder family-photo fade">
+    <!-- REPLACE: drag your family photo here and update src below -->
+    <img src="jonathan-family.jpg" alt="Jonathan with his family" onerror="this.parentElement.classList.add('placeholder-fallback')">
+    <div class="photo-placeholder-label">📷 Family photo — drop your image here</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     WHAT DRIVES ME
+══════════════════════════════════ -->
+<section class="drives-section sec">
+  <div class="wrap">
+    <div class="drives-grid">
+
+      <div class="drives-copy fade">
+        <span class="label">What Drives Me</span>
+        <h2>Beyond My Family, Three Things Fuel Everything I Do</h2>
+        <p>Creating deep and lasting impact. Building authentic connections. And embodying the kind of leadership I wish to see more of in the world.</p>
+        <p>These aren't just values I hold — they're commitments I live out in every facet of my work.</p>
+
+        <ul class="drives-list">
+          <li><strong>As an Executive and Leadership Coach,</strong> I help leaders and entrepreneurs show up with presence, purpose, and conviction — so they can make aligned decisions, inspire their teams, and build organizations that reflect their deepest values.</li>
+          <li><strong>As a mentor and teacher to coaches,</strong> I help practitioners deepen their presence, grow their practice, and align with their calling.</li>
+          <li><strong>As a facilitator and speaker,</strong> I bring authenticity, depth, and experience to create transformative experiences for organizations seeking real change.</li>
+          <li><strong>As Managing Director of the Center for Transformational Coaching,</strong> I lead with heart and vision, stewarding a global team and learning community dedicated to transformation.</li>
+          <li><strong>As a 3x founder,</strong> I've been intentional about building companies that matter — ventures rooted in meaning, service, and integrity.</li>
+        </ul>
+
+        <p class="drives-close">What I've come to realize is that my capacity to create impact is inseparable from the inner work I continue to do. The more I walk this path — imperfectly, but wholeheartedly — the more I'm able to guide others on theirs. This is the work I live for.</p>
+      </div>
+
+      <!-- SPEAKING PHOTO -->
+      <div class="drives-photo fade">
+        <div class="speaking-photo-wrap">
+          <!-- REPLACE: drag your speaking photo here and update src below -->
+          <img src="jonathan-speaking.jpg" alt="Jonathan speaking" onerror="this.parentElement.classList.add('placeholder-fallback')">
+          <div class="photo-placeholder-label">📷 Speaking photo — drop your image here</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     PILLARS
+══════════════════════════════════ -->
+<section class="pillars-section">
+  <div class="wrap">
+    <div class="pillars-header fade">
+      <span class="label" style="color:var(--accent); text-align:center; display:block;">How I Work</span>
+      <h2>The Pillars of My Practice</h2>
+      <p>My work holds two things at once — enough depth to reach what's real, and enough ground to bring it into your life.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar fade">
+        <div class="pillar-num">01</div>
+        <h3>Presence Over Performance</h3>
+        <p>True leadership emerges from being — not doing. I help leaders develop the capacity to hold complexity, ambiguity, and high stakes from a grounded, spacious interior.</p>
+      </div>
+      <div class="pillar fade">
+        <div class="pillar-num">02</div>
+        <h3>Inside-Out Development</h3>
+        <p>Lasting change begins within. Rather than overlaying new behaviors on old patterns, we work at the level of identity, belief, and embodied awareness.</p>
+      </div>
+      <div class="pillar fade">
+        <div class="pillar-num">03</div>
+        <h3>Wholeness as Strategy</h3>
+        <p>Your relationships, health, and inner life are not separate from your leadership — they are the foundation of it. Integration is the ultimate performance edge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     CREDENTIALS STRIP
+══════════════════════════════════ -->
+<section class="credentials-section">
+  <div class="wrap">
+    <div class="credentials-inner">
+      <div class="cred-item fade">
+        <div class="cred-num">2,500<em>+</em></div>
+        <div class="cred-label">Hours Coached</div>
+      </div>
+      <div class="cred-item fade">
+        <div class="cred-num">3<em>×</em></div>
+        <div class="cred-label">Founder & Executive</div>
+      </div>
+      <div class="cred-item fade">
+        <div class="cred-num">13<em>+</em></div>
+        <div class="cred-label">Years of Practice</div>
+      </div>
+      <div class="cred-item fade">
+        <div class="cred-num">19<em>+</em></div>
+        <div class="cred-label">Years of Deep Inner Work</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     OTHER WAYS I SERVE
+══════════════════════════════════ -->
+<section class="serve-section sec">
+  <div class="wrap">
+    <div class="serve-header fade">
+      <span class="label" style="text-align:center;">Beyond 1:1 Coaching</span>
+      <h2>Other Ways I Serve</h2>
+    </div>
+    <div class="serve-grid">
+
+      <div class="serve-card fade">
+        <div class="serve-logo">
+          <img src="ctc-logo.png"
+               alt="Center for Transformational Coaching"
+               onerror="this.src='https://centerfortransformationalcoaching.com/wp-content/uploads/2021/01/CTC-Logo.png'; this.onerror=null;">
+        </div>
+        <h3>Center for Transformational Coaching</h3>
+        <p>I have the privilege of serving as Managing Director of the Center for Transformational Coaching — a global institute dedicated to training coaches to work at the deepest levels of personal and spiritual transformation.</p>
+        <a href="https://centerfortransformationalcoaching.com" target="_blank" class="btn btn-ghost">Visit CTC</a>
+      </div>
+
+      <div class="serve-card fade">
+        <div class="serve-podcast-img">
+          <img src="jonathan-podcast.jpg" alt="The Deep Coach Podcast"
+               onerror="this.parentElement.classList.add('podcast-fallback')">
+          <div class="podcast-fallback-label">The Deep Coach Podcast</div>
+        </div>
+        <h3>The Deep Coach Podcast</h3>
+        <p>I host The Deep Coach Podcast, where I interview individuals who've walked through profound transformational journeys — exploring the "before and during" of those often tumultuous seasons, and how they've emerged to impact the world through their presence and work.</p>
+        <a href="https://www.podcast.centerfortransformationalcoaching.com/" target="_blank" class="btn btn-ghost">Listen Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     PULL QUOTE
+══════════════════════════════════ -->
+<div class="pull-quote">
+  <div class="wrap">
+    <div class="pull-quote-inner">
+      <div class="pq-mark">"</div>
+      <div class="pq-text">
+        <blockquote>Jonathan is the embodiment of a true evolutionary leader.</blockquote>
+        <cite>Leon VanderPol &nbsp;·&nbsp; Founder & Executive Director, Center for Transformational Coaching</cite>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     CTA
+══════════════════════════════════ -->
+<section class="cta-section sec">
+  <div class="wrap">
+    <span class="label" style="text-align:center;">Ready to Begin?</span>
+    <h2 class="fade">Let's Explore Working Together</h2>
+    <p class="fade">If something here resonates, I'd love to hear from you. Every coaching relationship begins with a conversation.</p>
+    <div class="cta-actions fade">
+      <a href="index.html#contact" class="btn btn-dark">Reach Out</a>
+      <a href="services.html" class="btn btn-ghost">View Services</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">
+        <img src="jh-logo-web.jpg" alt="Jonathan Hermida">
+      </a>
+      <ul class="footer-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Jonathan Hermida. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Scroll-aware nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  // Fade-in on scroll
+  const fades = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fades.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
