@@ -481,6 +481,41 @@
     }
 
     /* =====================
+       FAMILY MOMENT
+    ===================== */
+    .family-section {
+      background: var(--bg-warm);
+      padding: 90px 0;
+    }
+    .family-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .family-photo-frame {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .family-photo-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .family-caption {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* =====================
        IN CONVERSATION
     ===================== */
     .video-section {
@@ -869,6 +904,21 @@
 
 
 <!-- ══════════════════════════════════
+     FAMILY
+══════════════════════════════════ -->
+<section class="family-section">
+  <div class="wrap">
+    <div class="family-inner">
+      <div class="family-photo-frame fade">
+        <img src="jonathan-family.jpg" alt="Jonathan with his family">
+      </div>
+      <p class="family-caption">Miami, 2024</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
      WHAT DRIVES ME
 ══════════════════════════════════ -->
 <section class="drives-section sec">
@@ -894,7 +944,7 @@
 
       <div class="drives-photo fade">
         <div class="speaking-photo-wrap">
-          <img src="jonathan-family.jpg" alt="Jonathan with his family">
+          <img src="jonathan-speaking.jpg" alt="Jonathan speaking">
         </div>
       </div>
 
