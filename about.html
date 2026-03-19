@@ -291,40 +291,49 @@
     }
 
     /* =====================
-       PHOTO BREAKS
+       PHOTO BREAKS — two-up portrait gallery
     ===================== */
-    .photo-break {
-      width: 100%;
-      height: 480px;
-      overflow: hidden;
-      position: relative;
-    }
-    .dark-photo-break { background: var(--bg-dark); }
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-    .photo-placeholder img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-    .photo-placeholder-label {
-      display: none;
-      position: absolute;
-      inset: 0;
-      align-items: center;
-      justify-content: center;
+    .photo-gallery {
+      padding: 80px 0;
       background: var(--bg-warm);
-      font-family: var(--sans);
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
     }
-    .photo-placeholder.placeholder-fallback img { display: none; }
-    .photo-placeholder.placeholder-fallback .photo-placeholder-label { display: flex; }
+    .photo-gallery.dark-gallery {
+      background: var(--bg-dark);
+    }
+    .photo-gallery-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .photo-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .photo-frame .photo-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%);
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+    .photo-frame.placeholder-fallback img { display: none; }
+    @media (max-width: 600px) {
+      .photo-gallery-inner { grid-template-columns: 1fr; }
+    }
 
     /* =====================
        JOURNEY SECTION
@@ -769,15 +778,8 @@
 
 
 <!-- ══════════════════════════════════
-     TRAVEL PHOTO
+     PHOTO GALLERY
 ══════════════════════════════════ -->
-<div class="photo-break">
-  <div class="photo-placeholder travel-photo fade">
-    <!-- REPLACE: drag your travel photo here and update src below -->
-    <img src="jonathan-travel.jpg" alt="Jonathan on his travels" style="object-position: 80% top;" onerror="this.parentElement.classList.add('placeholder-fallback')">
-    <div class="photo-placeholder-label">📷 Travel photo — drop your image here</div>
-  </div>
-</div>
 
 
 <!-- ══════════════════════════════════
@@ -824,16 +826,18 @@
 </section>
 
 
-<!-- ══════════════════════════════════
-     FAMILY PHOTO
-══════════════════════════════════ -->
-<div class="photo-break dark-photo-break">
-  <div class="photo-placeholder family-photo fade">
-    <!-- REPLACE: drag your family photo here and update src below -->
-    <img src="jonathan-family.jpg" alt="Jonathan with his family" style="object-position: center bottom;" onerror="this.parentElement.classList.add('placeholder-fallback')">
-    <div class="photo-placeholder-label">📷 Family photo — drop your image here</div>
+<section class="photo-gallery">
+  <div class="photo-gallery-inner">
+    <div class="photo-frame fade">
+      <img src="jonathan-travel.jpg" alt="Jonathan at Machu Picchu">
+      <div class="photo-caption">South America, 2009</div>
+    </div>
+    <div class="photo-frame fade">
+      <img src="jonathan-family.jpg" alt="Jonathan with his family">
+      <div class="photo-caption">Miami, 2024</div>
+    </div>
   </div>
-</div>
+</section>
 
 
 <!-- ══════════════════════════════════
