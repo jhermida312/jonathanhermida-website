@@ -499,96 +499,74 @@
     .serve-section { background: var(--bg); }
     .serve-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
     .serve-header h2 { margin-top: 0.5rem; }
     .serve-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 780px;
+      margin: 0 auto;
     }
     .serve-card {
       background: var(--bg-warm);
       border: 1px solid var(--accent-light);
       border-radius: 2px;
-      overflow: hidden;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.75rem 2rem;
     }
-    .serve-card .serve-visual {
-      border-radius: 0;
-      border: none;
-      border-bottom: 1px solid var(--accent-light);
+    .serve-thumb {
       flex-shrink: 0;
-    }
-    .serve-card-body {
-      padding: 2rem 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.25rem;
-      flex: 1;
-      width: 100%;
-    }
-    /* Unified visual block */
-    .serve-visual {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
+      width: 80px;
+      height: 80px;
       border-radius: 2px;
       overflow: hidden;
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       background: var(--white);
       border: 1px solid var(--accent-light);
     }
-    /* CTC logo: centred, contained */
-    .serve-visual.serve-visual--logo img {
-      max-height: 130px;
-      max-width: 80%;
-      width: auto;
-      height: auto;
+    .serve-thumb.serve-thumb--logo img {
+      width: 64px;
+      height: 64px;
       object-fit: contain;
     }
-    /* Podcast: true square so the 1:1 cover fills perfectly */
-    .serve-visual.serve-visual--cover {
-      background: #e8ecf4;
-      height: auto;
-      aspect-ratio: 1 / 1;
-    }
-    .serve-visual.serve-visual--cover img {
-      width: 100%;
-      height: 100%;
+    .serve-thumb.serve-thumb--cover img {
+      width: 80px;
+      height: 80px;
       object-fit: cover;
     }
-    .podcast-fallback-label {
-      display: none;
-      position: absolute;
-      inset: 0;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      color: var(--text);
-      text-align: center;
-      padding: 1rem;
+    .serve-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
     }
-    .serve-visual.podcast-fallback img { display: none; }
-    .serve-visual.podcast-fallback .podcast-fallback-label { display: flex; }
-    .serve-card h3 {
-      font-size: 1.4rem;
+    .serve-card-body h3 {
+      font-size: 1.2rem;
       color: var(--text);
       margin: 0;
     }
-    .serve-card p { margin: 0; }
-    .serve-card-body .btn { margin-top: auto; }
+    .serve-card-body p {
+      font-size: 0.9375rem;
+      margin: 0;
+      line-height: 1.7;
+    }
+    .serve-card-body .btn {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.75rem;
+    }
+    .podcast-fallback-label { display: none; }
 
-    @media (max-width: 768px) {
-      .serve-grid { grid-template-columns: 1fr; }
+    @media (max-width: 600px) {
+      .serve-card { flex-direction: column; align-items: flex-start; }
     }
 
     /* =====================
@@ -852,7 +830,7 @@
 <div class="photo-break dark-photo-break">
   <div class="photo-placeholder family-photo fade">
     <!-- REPLACE: drag your family photo here and update src below -->
-    <img src="jonathan-family.jpg" alt="Jonathan with his family" onerror="this.parentElement.classList.add('placeholder-fallback')">
+    <img src="jonathan-family.jpg" alt="Jonathan with his family" style="object-position: center top;" onerror="this.parentElement.classList.add('placeholder-fallback')">
     <div class="photo-placeholder-label">📷 Family photo — drop your image here</div>
   </div>
 </div>
@@ -990,23 +968,21 @@
     <div class="serve-grid">
 
       <div class="serve-card fade">
-        <div class="serve-visual serve-visual--logo">
+        <div class="serve-thumb serve-thumb--logo">
           <img src="ctc-logo.png"
                alt="Center for Transformational Coaching"
                onerror="this.src='https://centerfortransformationalcoaching.com/wp-content/uploads/2021/01/CTC-Logo.png'; this.onerror=null;">
         </div>
         <div class="serve-card-body">
           <h3>Center for Transformational Coaching</h3>
-          <p>I have the privilege of serving as Managing Director of the Center for Transformational Coaching — a global professional coach training organization dedicated to training coaches to work at the deepest levels of personal and spiritual transformation.</p>
+          <p>I serve as Managing Director of the Center for Transformational Coaching — a global professional coach training organization dedicated to training coaches to work at the deepest levels of personal and spiritual transformation.</p>
           <a href="https://centerfortransformationalcoaching.com" target="_blank" class="btn btn-ghost">Visit CTC</a>
         </div>
       </div>
 
       <div class="serve-card fade">
-        <div class="serve-visual serve-visual--cover">
-          <img src="jonathan-podcast.jpg" alt="The Deep Coach Podcast"
-               onerror="this.parentElement.classList.add('podcast-fallback')">
-          <div class="podcast-fallback-label">The Deep Coach Podcast</div>
+        <div class="serve-thumb serve-thumb--cover">
+          <img src="jonathan-podcast.jpg" alt="The Deep Coach Podcast">
         </div>
         <div class="serve-card-body">
           <h3>The Deep Coach Podcast</h3>
