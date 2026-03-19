@@ -225,28 +225,46 @@
     }
     .story-grid {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 6rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
       align-items: start;
     }
-    .story-sidebar {
-      position: sticky;
-      top: calc(var(--nav-h) + 2rem);
+    .story-photo {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
     }
-    .story-sidebar h2 {
+    .story-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+    }
+    .story-photo .photo-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+    .story-content h2 {
       font-size: clamp(2rem, 3.5vw, 2.8rem);
       margin-bottom: 1.5rem;
     }
-    .story-sidebar .sidebar-line {
+    .story-content .sidebar-line {
       width: 40px;
       height: 2px;
       background: var(--accent);
       margin-bottom: 2rem;
     }
-    .story-body p {
+    .story-content p {
       margin-bottom: 1.5rem;
     }
-    .story-body p:last-child { margin-bottom: 0; }
+    .story-content p:last-child { margin-bottom: 0; }
 
     /* =====================
        VALUES / PILLARS
@@ -683,6 +701,7 @@
        MOBILE NAV OVERLAY
     ===================== */
     @media (max-width: 768px) {
+      /* Nav */
       .nav-links {
         display: none;
         position: fixed;
@@ -699,16 +718,40 @@
       #nav-cta { display: none; }
       .hamburger { display: flex; }
 
+      /* Page hero */
       .page-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
       .page-hero-photo { height: 420px; }
-      .story-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .story-sidebar { position: static; }
+
+      /* Story */
+      .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .story-photo img { max-height: 420px; object-fit: cover; }
+
+      /* Journey */
       .journey-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      /* What drives me */
       .drives-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .drives-grid .drives-photo { order: -1; }
       .speaking-photo-wrap { height: 380px; }
-      .photo-break { height: 300px; }
+
+      /* Pillars */
       .pillars-grid { grid-template-columns: 1fr; }
+
+      /* Credentials */
       .credentials-inner { grid-template-columns: repeat(2, 1fr); }
+
+      /* Video */
+      .video-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      /* Serve cards */
+      .serve-card { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2.6rem; }
+      .sec { padding: 70px 0; }
+      .credentials-inner { grid-template-columns: repeat(2, 1fr); }
+      .page-hero-photo { height: 340px; }
     }
   </style>
 </head>
@@ -760,14 +803,16 @@
   <div class="wrap">
     <div class="story-grid">
 
-      <div class="story-sidebar fade">
+      <div class="story-photo fade">
+        <img src="jonathan-travel.jpg" alt="Jonathan at Machu Picchu">
+        <div class="photo-caption">Machu Picchu, South America</div>
+      </div>
+
+      <div class="story-content fade">
         <span class="label">My Story</span>
         <h2>One Decision That Changed Everything</h2>
         <div class="sidebar-line"></div>
         <p>There's really only one decision I feel I've ever truly made in my life.</p>
-      </div>
-
-      <div class="story-body fade">
         <p>At 23, I quit a corporate job I had just been promoted into and took off to backpack through South America for a year.</p>
         <p>Every "decision" before that felt like an unconscious unfolding — shaped by past traumas, societal expectations, and the avoidance of discomfort. Every "decision" after was more of a saying yes to the opportunities life was putting in front of me…opportunities for indescribable healing, growth and learning…than they were actual decisions based off careful analysis.</p>
       </div>
@@ -775,11 +820,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- ══════════════════════════════════
-     PHOTO GALLERY
-══════════════════════════════════ -->
 
 
 <!-- ══════════════════════════════════
@@ -826,18 +866,6 @@
 </section>
 
 
-<section class="photo-gallery">
-  <div class="photo-gallery-inner">
-    <div class="photo-frame fade">
-      <img src="jonathan-travel.jpg" alt="Jonathan at Machu Picchu">
-      <div class="photo-caption">South America, 2009</div>
-    </div>
-    <div class="photo-frame fade">
-      <img src="jonathan-family.jpg" alt="Jonathan with his family">
-      <div class="photo-caption">Miami, 2024</div>
-    </div>
-  </div>
-</section>
 
 
 <!-- ══════════════════════════════════
@@ -864,12 +892,9 @@
         <p class="drives-close">What I've come to realize is that my capacity to create impact is inseparable from the inner work I continue to do. The more I walk this path — imperfectly, but wholeheartedly — the more I'm able to guide others on theirs. This is the work I live for.</p>
       </div>
 
-      <!-- SPEAKING PHOTO -->
       <div class="drives-photo fade">
         <div class="speaking-photo-wrap">
-          <!-- REPLACE: drag your speaking photo here and update src below -->
-          <img src="jonathan-speaking.jpg" alt="Jonathan speaking" onerror="this.parentElement.classList.add('placeholder-fallback')">
-          <div class="photo-placeholder-label">📷 Speaking photo — drop your image here</div>
+          <img src="jonathan-family.jpg" alt="Jonathan with his family">
         </div>
       </div>
 
