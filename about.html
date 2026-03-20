@@ -308,47 +308,6 @@
     }
     .story-content p:last-child { margin-bottom: 0; }
 
-    /* =====================
-       VALUES / PILLARS
-    ===================== */
-    .pillars-section {
-      background: var(--bg-dark);
-      padding: 110px 0;
-    }
-    .pillars-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .pillars-header h2 { color: var(--white); }
-    .pillars-header p { color: rgba(255,255,255,0.55); margin-top: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; }
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-    .pillar {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      padding: 3rem 2.5rem;
-    }
-    .pillar-num {
-      font-family: var(--serif);
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: var(--accent);
-      opacity: 0.4;
-      line-height: 1;
-      margin-bottom: 1.25rem;
-    }
-    .pillar h3 {
-      color: var(--white);
-      font-size: 1.4rem;
-      margin-bottom: 0.875rem;
-    }
-    .pillar p {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.9375rem;
-    }
 
     /* =====================
        PHOTO BREAKS — two-up portrait gallery
@@ -487,6 +446,49 @@
     }
     .speaking-photo-wrap.placeholder-fallback img { display: none; }
     .speaking-photo-wrap.placeholder-fallback .photo-placeholder-label { display: flex; }
+
+    /* =====================
+       PERSONAL QUOTE
+    ===================== */
+    .personal-quote {
+      background: var(--bg-dark);
+      padding: 90px 0;
+      text-align: center;
+    }
+    .personal-quote-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .personal-quote blockquote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.45;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+    .personal-quote blockquote::before {
+      content: '\201C';
+      font-family: var(--serif);
+      font-size: 5rem;
+      line-height: 0;
+      vertical-align: -0.55em;
+      color: var(--accent);
+      opacity: 0.5;
+      margin-right: 0.1em;
+    }
+    .personal-quote cite {
+      display: block;
+      font-style: normal;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
 
     /* =====================
        CREDENTIALS STRIP
@@ -811,9 +813,6 @@
       .drives-grid .drives-photo { order: -1; }
       .speaking-photo-wrap { height: 380px; }
 
-      /* Pillars */
-      .pillars-grid { grid-template-columns: 1fr; }
-
       /* Credentials */
       .credentials-inner { grid-template-columns: repeat(2, 1fr); }
 
@@ -843,6 +842,7 @@
       <img src="jh-logo-web.png" alt="Jonathan Hermida">
     </a>
     <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="services.html">Services</a></li>
     </ul>
@@ -891,7 +891,7 @@
         <div class="sidebar-line"></div>
         <p>There's really only one decision I feel I've ever truly made in my life.</p>
         <p>At 23, I quit a corporate job I had just been promoted into and took off to backpack through South America for a year.</p>
-        <p>Every "decision" before that felt like an unconscious unfolding — shaped by past traumas, societal expectations, and the avoidance of discomfort. Every "decision" after was more of a saying yes to the opportunities life was putting in front of me…opportunities for indescribable healing, growth and learning…than they were actual decisions based off careful analysis.</p>
+        <p>Every "decision" before that felt like an unconscious unfolding, shaped by past traumas, societal expectations, and the avoidance of discomfort. Every "decision" after was more of a saying yes to the opportunities life was putting in front of me…opportunities for indescribable healing, growth and learning…than they were actual decisions based off careful analysis.</p>
       </div>
 
     </div>
@@ -971,17 +971,16 @@
         <span class="label">What Drives Me</span>
         <h2>Beyond My Family, Three Things Fuel Everything I Do</h2>
         <p>Creating deep and lasting impact. Building authentic connections. And embodying the kind of leadership I wish to see more of in the world.</p>
-        <p>These aren't just values I hold — they're commitments I live out in every facet of my work.</p>
+        <p>These aren't just values I hold; they're commitments I live out in every facet of my work.</p>
 
         <ul class="drives-list">
-          <li><strong>As an Executive and Leadership Coach,</strong> I help leaders and entrepreneurs show up with presence, purpose, and conviction — so they can make aligned decisions, inspire their teams, and build organizations that reflect their deepest values.</li>
+          <li><strong>As an Executive and Leadership Coach,</strong> I help leaders and entrepreneurs show up with presence, purpose, and conviction, making aligned decisions, inspiring their teams, and building organizations that reflect their deepest values.</li>
           <li><strong>As a mentor and teacher to coaches,</strong> I help practitioners deepen their presence, grow their practice, and align with their calling.</li>
           <li><strong>As a facilitator and speaker,</strong> I bring authenticity, depth, and experience to create transformative experiences for organizations seeking real change.</li>
           <li><strong>As Managing Director of the Center for Transformational Coaching,</strong> I lead with heart and vision, stewarding a global team and learning community dedicated to transformation.</li>
-          <li><strong>As a 3x founder,</strong> I've been intentional about building companies that matter — ventures rooted in meaning, service, and integrity.</li>
+          <li><strong>As a 3x founder,</strong> I've been intentional about building companies that matter: ventures rooted in meaning, service, and integrity.</li>
         </ul>
 
-        <p class="drives-close">What I've come to realize is that my capacity to create impact is inseparable from the inner work I continue to do. The more I walk this path — imperfectly, but wholeheartedly — the more I'm able to guide others on theirs. This is the work I live for.</p>
       </div>
 
       <div class="drives-photo fade">
@@ -995,33 +994,15 @@
 </section>
 
 
+
+
 <!-- ══════════════════════════════════
-     PILLARS
+     PERSONAL QUOTE
 ══════════════════════════════════ -->
-<section class="pillars-section">
-  <div class="wrap">
-    <div class="pillars-header fade">
-      <span class="label" style="color:var(--accent); text-align:center; display:block;">How I Work</span>
-      <h2>The Pillars of My Practice</h2>
-      <p>My work holds two things at once — enough depth to reach what's real, and enough ground to bring it into your life.</p>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar fade">
-        <div class="pillar-num">01</div>
-        <h3>Presence Over Performance</h3>
-        <p>True leadership emerges from being — not doing. I help leaders develop the capacity to hold complexity, ambiguity, and high stakes from a grounded, spacious interior.</p>
-      </div>
-      <div class="pillar fade">
-        <div class="pillar-num">02</div>
-        <h3>Inside-Out Development</h3>
-        <p>Lasting change begins within. Rather than overlaying new behaviors on old patterns, we work at the level of identity, belief, and embodied awareness.</p>
-      </div>
-      <div class="pillar fade">
-        <div class="pillar-num">03</div>
-        <h3>Wholeness as Strategy</h3>
-        <p>Your relationships, health, and inner life are not separate from your leadership — they are the foundation of it. Integration is the ultimate performance edge.</p>
-      </div>
-    </div>
+<section class="personal-quote">
+  <div class="personal-quote-inner fade">
+    <blockquote>What I've come to realize is that my capacity to create impact is inseparable from the inner work I continue to do. The more I walk this path, imperfectly but wholeheartedly, the more I'm able to guide others on theirs. This is the work I live for.</blockquote>
+    <cite>Jonathan Hermida</cite>
   </div>
 </section>
 
@@ -1096,7 +1077,7 @@
         </div>
         <div class="serve-card-body">
           <h3>Center for Transformational Coaching</h3>
-          <p>I serve as Managing Director of the Center for Transformational Coaching — a global professional coach training organization dedicated to training coaches to work at the deepest levels of personal and spiritual transformation.</p>
+          <p>I serve as Managing Director of the Center for Transformational Coaching, a global professional coach training organization dedicated to training coaches to work at the deepest levels of personal and spiritual transformation.</p>
           <a href="https://centerfortransformationalcoaching.com" target="_blank" class="btn btn-ghost">Visit CTC</a>
         </div>
       </div>
@@ -1107,7 +1088,7 @@
         </div>
         <div class="serve-card-body">
           <h3>The Deep Coach Podcast</h3>
-          <p>I host The Deep Coach Podcast, where I interview individuals who've walked through profound transformational journeys — exploring the "before and during" of those often tumultuous seasons, and how they've emerged to impact the world through their presence and work.</p>
+          <p>I host The Deep Coach Podcast, where I interview individuals who've walked through profound transformational journeys, exploring the "before and during" of those often tumultuous seasons and how they've emerged to impact the world through their presence and work.</p>
           <a href="https://www.podcast.centerfortransformationalcoaching.com/" target="_blank" class="btn btn-ghost">Listen Now</a>
         </div>
       </div>
