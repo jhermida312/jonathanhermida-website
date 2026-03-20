@@ -395,31 +395,65 @@
     /* =====================
        TESTIMONIAL STRIP
     ===================== */
-    .testi-strip {
-      background: var(--bg-dark);
-      padding: 80px 0;
+    .testi-section {
+      background: var(--bg-warm);
+      padding: 100px 0;
     }
-    .testi-strip-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+    .testi-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
     }
-    .testi-item blockquote {
+    .testi-header h2 { margin-top: 0.5rem; }
+    .testi-grid {
+      columns: 3;
+      column-gap: 1.75rem;
+    }
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--accent-light);
+      border-radius: 2px;
+      padding: 2rem 2rem 1.75rem;
+      break-inside: avoid;
+      margin-bottom: 1.75rem;
+    }
+    .testi-card blockquote {
       font-family: var(--serif);
       font-style: italic;
       font-weight: 300;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      line-height: 1.5;
-      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--text);
       margin-bottom: 1.25rem;
     }
-    .testi-item cite {
+    .testi-card blockquote::before {
+      content: '\201C';
+      font-size: 2.5rem;
+      line-height: 0;
+      vertical-align: -0.45em;
+      color: var(--accent);
+      opacity: 0.5;
+      margin-right: 0.1em;
+      font-family: var(--serif);
+    }
+    .testi-card cite {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
       font-style: normal;
+      border-top: 1px solid var(--accent-light);
+      padding-top: 1rem;
+    }
+    .testi-card cite .cite-name {
       font-size: 0.8125rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--text);
+    }
+    .testi-card cite .cite-role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
     }
 
     /* =====================
@@ -556,6 +590,10 @@
       transform: none;
     }
 
+    @media (max-width: 1024px) {
+      .testi-grid { columns: 2; }
+    }
+
     /* =====================
        MOBILE
     ===================== */
@@ -581,7 +619,8 @@
       .for-visual { height: 380px; }
       .coaching-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; }
-      .testi-strip-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .testi-grid { columns: 1; }
+      .testi-card { margin-bottom: 1.25rem; }
     }
   </style>
 </head>
@@ -765,19 +804,88 @@
 
 
 <!-- ══════════════════════════════════
-     TESTIMONIAL STRIP
+     TESTIMONIALS
 ══════════════════════════════════ -->
-<section class="testi-strip">
+<section class="testi-section">
   <div class="wrap">
-    <div class="testi-strip-inner">
-      <div class="testi-item fade">
-        <blockquote>"My time spent working with Jonathan will be one of those moments in my life that I will never forget and be forever grateful for. It was a life changing experience."</blockquote>
-        <cite>Dave Thorvalson &nbsp;·&nbsp; Founder, Akamai Creations</cite>
+    <div class="testi-header fade">
+      <span class="label">Client Voices</span>
+      <h2>What People Say</h2>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card fade">
+        <blockquote>This man changed my life. He coached me to understand that adaptability is one of the most important skills in life, and how to evolve into a better version of yourself through self-discovery.</blockquote>
+        <cite>
+          <span class="cite-name">Douglas Labrozzi</span>
+          <span class="cite-role">CEO, Byzwise</span>
+        </cite>
       </div>
-      <div class="testi-item fade">
-        <blockquote>"With Jonathan, not only did I find peace after disruptions of my private and professional life but also the space that allowed me to re-invent myself by arriving home within me."</blockquote>
-        <cite>Dr. Matthias Müller-Lindenberg &nbsp;·&nbsp; Founder, ML Leadership Advisors</cite>
+
+      <div class="testi-card fade">
+        <blockquote>The greatest gift from my time with Jonathan is lasting: the unwavering belief that I can handle anything. He helped me unlock the knowledge that the answers I seek are already within me. Jonathan is more than a coach; he is a facilitator of profound personal and professional growth.</blockquote>
+        <cite>
+          <span class="cite-name">Sara Matthews</span>
+          <span class="cite-role">Senior Learning Leader, Salesforce</span>
+        </cite>
       </div>
+
+      <div class="testi-card fade">
+        <blockquote>My time spent working with Jonathan will be one of those moments in my life that I will never forget and be forever grateful for. It was a life-changing experience.</blockquote>
+        <cite>
+          <span class="cite-name">Dave Thorvalson</span>
+          <span class="cite-role">Founder, Akamai Creations</span>
+        </cite>
+      </div>
+
+      <div class="testi-card fade">
+        <blockquote>This year we're not only making more money, but the business is in a completely different stage. Our minds are wired differently now. We perceive things from a place of humbleness and openness instead of pride or fear. Thanks to Jonathan.</blockquote>
+        <cite>
+          <span class="cite-name">Jeanette Corona</span>
+          <span class="cite-role">Founder, Cafe 15</span>
+        </cite>
+      </div>
+
+      <div class="testi-card fade">
+        <blockquote>Jonathan was indispensable in aligning my creative, professional, and personal objectives at a time of great flux. He lit the fire that finally got me to publish my book and switch jobs, placing me in a more secure and fulfilling position than I was before.</blockquote>
+        <cite>
+          <span class="cite-name">Andrew Otazo</span>
+          <span class="cite-role">CEO, ARO Communications</span>
+        </cite>
+      </div>
+
+      <div class="testi-card fade">
+        <blockquote>With Jonathan, not only did I find peace after disruptions of my private and professional life but also the space that allowed me to re-invent myself by arriving home within me.</blockquote>
+        <cite>
+          <span class="cite-name">Dr. Matthias Müller-Lindenberg</span>
+          <span class="cite-role">Founder, ML Leadership Advisors</span>
+        </cite>
+      </div>
+
+      <div class="testi-card fade">
+        <blockquote>Jonathan met me exactly where I was and related to all the work I had done prior to meeting him. He extracts deeply meaningful questions from every interaction. His words and presence are a guide, inspiration, and source of positive accountability in my daily decision making.</blockquote>
+        <cite>
+          <span class="cite-name">Zac Brown</span>
+          <span class="cite-role">Operations &amp; Business Leader</span>
+        </cite>
+      </div>
+
+      <div class="testi-card fade">
+        <blockquote>Without Jonathan I would not be where I am today. He helped me overcome a major time of transition, helping me feel more centered and secure. I will keep that voice close to my heart and pass his words on to others who don't have the chance to experience him.</blockquote>
+        <cite>
+          <span class="cite-name">Stephanie Richard</span>
+          <span class="cite-role">Restaurant Manager</span>
+        </cite>
+      </div>
+
+      <div class="testi-card fade">
+        <blockquote>Working with Jon was like opening the door into the land of my own psyche. His questions probe deep into the dark recesses of my beliefs and helped me gain illumination on what has been holding me back. His belief in my ability to live my dream is unrelenting.</blockquote>
+        <cite>
+          <span class="cite-name">Christie Dunn-Murphy</span>
+          <span class="cite-role">Author</span>
+        </cite>
+      </div>
+
     </div>
   </div>
 </section>
