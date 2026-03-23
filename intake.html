@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Coaching Intake Form | Jonathan Hermida</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:           #FAFAF7;
+      --bg-warm:      #F3EDE4;
+      --bg-dark:      #1C1A17;
+      --text:         #1C1A17;
+      --text-muted:   #6B6358;
+      --accent:       #B8966E;
+      --accent-light: #E8DDD0;
+      --white:        #FFFFFF;
+      --serif:        'Cormorant Garamond', Georgia, serif;
+      --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max:          760px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    p { font-size: 1rem; line-height: 1.8; color: var(--text-muted); }
+
+    /* =====================
+       HEADER
+    ===================== */
+    .intake-header {
+      background: var(--bg-dark);
+      padding: 48px 2rem 52px;
+      text-align: center;
+    }
+    .intake-header img {
+      height: 48px;
+      width: auto;
+      margin: 0 auto 2rem;
+      mix-blend-mode: screen;
+      opacity: 0.9;
+    }
+    .intake-header h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .intake-header h1 em { font-style: italic; }
+    .intake-header p {
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 0.9375rem;
+    }
+
+    /* =====================
+       PROGRESS BAR
+    ===================== */
+    .progress-bar {
+      height: 3px;
+      background: var(--accent-light);
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* =====================
+       MAIN
+    ===================== */
+    .intake-main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 60px 2rem 100px;
+    }
+
+    /* =====================
+       SECTION
+    ===================== */
+    .form-section {
+      display: none;
+    }
+    .form-section.active {
+      display: block;
+      animation: fadeUp 0.4s ease forwards;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .section-title em { font-style: italic; font-weight: 300; }
+    .section-intro {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 580px;
+    }
+
+    /* =====================
+       FORM ELEMENTS
+    ===================== */
+    .form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-group label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form-group .hint {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: -0.2rem;
+      font-style: italic;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="url"],
+    .form-group select,
+    .form-group textarea {
+      font-family: var(--sans);
+      font-size: 0.9375rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--accent-light);
+      border-radius: 2px;
+      padding: 0.8rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #C0B5A8; }
+    .form-group textarea { resize: vertical; }
+    .form-group textarea.short { min-height: 100px; }
+    .form-group textarea.medium { min-height: 140px; }
+    .form-group textarea.tall  { min-height: 180px; }
+    .form-group select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6358' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+
+    /* Radio / checkbox groups */
+    .check-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+    }
+    .check-group.inline {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      cursor: pointer;
+    }
+    .check-item input[type="radio"],
+    .check-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .check-item span {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Scale */
+    .scale-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .scale-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .scale-item label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+    .scale-item input[type="range"] {
+      width: 160px;
+      accent-color: var(--accent);
+    }
+    .scale-value {
+      width: 28px;
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Divider */
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--accent-light);
+      margin: 0.5rem 0;
+    }
+
+    /* =====================
+       NAVIGATION BUTTONS
+    ===================== */
+    .form-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--accent-light);
+    }
+    .step-counter {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.75rem;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+    }
+    .btn-dark  { background: var(--text); color: var(--white); }
+    .btn-dark:hover  { background: var(--accent); }
+    .btn-ghost { background: transparent; border: 1.5px solid var(--accent-light); color: var(--text-muted); }
+    .btn-ghost:hover { border-color: var(--text-muted); color: var(--text); }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* =====================
+       THANK YOU STATE
+    ===================== */
+    .form-complete {
+      display: none;
+      text-align: center;
+      padding: 60px 2rem;
+    }
+    .form-complete.active { display: block; }
+    .complete-mark {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--bg-warm);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+    }
+    .complete-mark svg { display: block; }
+    .form-complete h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+    .form-complete h2 em { font-style: italic; font-weight: 300; }
+    .form-complete p {
+      max-width: 480px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    /* =====================
+       FOOTER
+    ===================== */
+    .intake-footer {
+      background: var(--bg-dark);
+      padding: 32px 2rem;
+      text-align: center;
+    }
+    .intake-footer p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* =====================
+       MOBILE
+    ===================== */
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .scale-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      .scale-item input[type="range"] { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="intake-header">
+  <img src="jh-logo-web.png" alt="Jonathan Hermida">
+  <h1>Coaching Intake <em>Form</em></h1>
+  <p>Thank you for committing to this work. Your responses will help me understand where you are, what matters most, and how to orient our time together from day one. There are no right answers — only honest ones.</p>
+</header>
+
+<div class="progress-bar">
+  <div class="progress-fill" id="progress-fill"></div>
+</div>
+
+<!-- FORM -->
+<main class="intake-main">
+  <form id="intake-form"
+        action="https://formspree.io/f/xpqynyla"
+        method="POST">
+    <input type="hidden" name="_subject" value="New coaching intake form — jonathanhermida.com">
+    <input type="hidden" name="_next" value="https://www.jonathanhermida.com/thank-you">
+
+    <!-- ══════════════════════
+         SECTION 1 — ABOUT YOU
+    ══════════════════════ -->
+    <div class="form-section active" id="section-1">
+      <span class="section-label">Section 1 of 6</span>
+      <h2 class="section-title">About <em>You</em></h2>
+      <p class="section-intro">Let's start with the basics so I have context before our first session.</p>
+
+      <div class="form-fields">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" name="first_name" required placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label for="last_name">Last Name *</label>
+            <input type="text" id="last_name" name="last_name" required placeholder="Last name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="role">Current Role / Title *</label>
+            <input type="text" id="role" name="role" required placeholder="e.g. CEO, Founder, VP Marketing">
+          </div>
+          <div class="form-group">
+            <label for="company">Company / Organization</label>
+            <input type="text" id="company" name="company" placeholder="Company name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="industry">Industry</label>
+          <input type="text" id="industry" name="industry" placeholder="e.g. Technology, Finance, Healthcare">
+        </div>
+
+        <div class="form-group">
+          <label for="team_size">Team / Organization Size</label>
+          <select id="team_size" name="team_size">
+            <option value="" disabled selected>Select one</option>
+            <option>Just me (solopreneur)</option>
+            <option>2–10 people</option>
+            <option>11–50 people</option>
+            <option>51–200 people</option>
+            <option>200+ people</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="linkedin">LinkedIn Profile URL</label>
+          <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourname">
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <span class="step-counter">Step 1 of 6</span>
+        <button type="button" class="btn btn-dark" onclick="nextSection(1)">Continue &rarr;</button>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════
+         SECTION 2 — YOUR CONTEXT
+    ══════════════════════ -->
+    <div class="form-section" id="section-2">
+      <span class="section-label">Section 2 of 6</span>
+      <h2 class="section-title">Your <em>Context</em></h2>
+      <p class="section-intro">Help me understand where you are right now — professionally and personally.</p>
+
+      <div class="form-fields">
+        <div class="form-group">
+          <label for="context_professional">Describe your current professional situation *</label>
+          <p class="hint">Role, responsibilities, what's working, what's not.</p>
+          <textarea id="context_professional" name="context_professional" class="medium" required placeholder="Share as much detail as feels relevant..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="context_personal">How would you describe your life outside of work right now?</label>
+          <p class="hint">Family, health, energy, relationships, sense of balance.</p>
+          <textarea id="context_personal" name="context_personal" class="medium" placeholder="This doesn't have to be comprehensive — just honest."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="inflection">Are you navigating any significant transitions or inflection points?</label>
+          <p class="hint">New role, company growth, leadership change, personal shift, etc.</p>
+          <textarea id="inflection" name="inflection" class="short" placeholder="If so, describe what's happening..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>How long have you been in your current role?</label>
+          <div class="check-group inline" style="margin-top:0.5rem;">
+            <label class="check-item"><input type="radio" name="role_tenure" value="Less than 6 months"><span>Less than 6 months</span></label>
+            <label class="check-item"><input type="radio" name="role_tenure" value="6–18 months"><span>6–18 months</span></label>
+            <label class="check-item"><input type="radio" name="role_tenure" value="1–3 years"><span>1–3 years</span></label>
+            <label class="check-item"><input type="radio" name="role_tenure" value="3–5 years"><span>3–5 years</span></label>
+            <label class="check-item"><input type="radio" name="role_tenure" value="5+ years"><span>5+ years</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn btn-ghost" onclick="prevSection(2)">&larr; Back</button>
+        <span class="step-counter">Step 2 of 6</span>
+        <button type="button" class="btn btn-dark" onclick="nextSection(2)">Continue &rarr;</button>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════
+         SECTION 3 — YOUR GOALS
+    ══════════════════════ -->
+    <div class="form-section" id="section-3">
+      <span class="section-label">Section 3 of 6</span>
+      <h2 class="section-title">Goals &amp; <em>Intentions</em></h2>
+      <p class="section-intro">What are you hoping to create through this coaching engagement?</p>
+
+      <div class="form-fields">
+        <div class="form-group">
+          <label for="primary_goal">What is the single most important thing you want to shift, develop, or create through this work? *</label>
+          <textarea id="primary_goal" name="primary_goal" class="medium" required placeholder="Be as specific as you can..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>What areas of focus feel most relevant to you right now? (Select all that apply)</label>
+          <div class="check-group" style="margin-top:0.5rem;">
+            <label class="check-item"><input type="checkbox" name="focus_areas" value="Presence and emotional regulation"><span>Presence and emotional regulation under pressure</span></label>
+            <label class="check-item"><input type="checkbox" name="focus_areas" value="Leadership identity and evolution"><span>Leadership identity and who I'm becoming as a leader</span></label>
+            <label class="check-item"><input type="checkbox" name="focus_areas" value="Influence and impact"><span>Expanding my influence and impact</span></label>
+            <label class="check-item"><input type="checkbox" name="focus_areas" value="Integration — work and life"><span>Integration of work, health, relationships, and self</span></label>
+            <label class="check-item"><input type="checkbox" name="focus_areas" value="Vision and purpose"><span>Reconnecting with vision, purpose, and direction</span></label>
+            <label class="check-item"><input type="checkbox" name="focus_areas" value="Navigating a transition"><span>Navigating a significant transition or change</span></label>
+            <label class="check-item"><input type="checkbox" name="focus_areas" value="Inner work and self-awareness"><span>Deepening self-awareness and inner work</span></label>
+            <label class="check-item"><input type="checkbox" name="focus_areas" value="Communication and relationships"><span>Communication, relationships, and team dynamics</span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="success_looks_like">Six months from now, how would you know this coaching was worth it?</label>
+          <p class="hint">What would you feel, think, or be doing differently?</p>
+          <textarea id="success_looks_like" name="success_looks_like" class="medium" placeholder="Paint a picture of what success looks like for you..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="obstacles">What do you imagine might get in the way of doing this work fully?</label>
+          <p class="hint">Time, resistance, fear, past patterns, external demands, etc.</p>
+          <textarea id="obstacles" name="obstacles" class="short" placeholder="Be honest — naming it here helps us address it early."></textarea>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn btn-ghost" onclick="prevSection(3)">&larr; Back</button>
+        <span class="step-counter">Step 3 of 6</span>
+        <button type="button" class="btn btn-dark" onclick="nextSection(3)">Continue &rarr;</button>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════
+         SECTION 4 — LEADERSHIP & SELF
+    ══════════════════════ -->
+    <div class="form-section" id="section-4">
+      <span class="section-label">Section 4 of 6</span>
+      <h2 class="section-title">Leadership &amp; <em>Self</em></h2>
+      <p class="section-intro">These questions help me understand how you experience yourself as a leader and as a person.</p>
+
+      <div class="form-fields">
+        <div class="form-group">
+          <label for="leadership_strengths">What do you consider your greatest strengths as a leader?</label>
+          <textarea id="leadership_strengths" name="leadership_strengths" class="short" placeholder="What comes naturally? What do others notice about you?"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="leadership_shadows">What patterns or tendencies in yourself do you find most limiting or costly?</label>
+          <p class="hint">The things you know you do that don't serve you well.</p>
+          <textarea id="leadership_shadows" name="leadership_shadows" class="short" placeholder="What do you keep bumping up against?"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="feedback_received">What feedback have you received that has felt most challenging to hear — or most true?</label>
+          <textarea id="feedback_received" name="feedback_received" class="short" placeholder="From colleagues, coaches, partners, or your own reflection..."></textarea>
+        </div>
+
+        <hr class="form-divider">
+
+        <div class="form-group">
+          <label>Rate your current sense of presence and groundedness in high-stakes moments</label>
+          <div class="scale-group">
+            <div class="scale-item">
+              <label>1 = Often reactive / ungrounded &nbsp;&nbsp; 10 = Consistently calm and present</label>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <input type="range" name="presence_score" min="1" max="10" value="5"
+                  oninput="this.nextElementSibling.textContent = this.value">
+                <span class="scale-value">5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Rate your current sense of alignment — that your work reflects your values and purpose</label>
+          <div class="scale-group">
+            <div class="scale-item">
+              <label>1 = Deeply misaligned &nbsp;&nbsp; 10 = Fully aligned</label>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <input type="range" name="alignment_score" min="1" max="10" value="5"
+                  oninput="this.nextElementSibling.textContent = this.value">
+                <span class="scale-value">5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Rate your current energy and capacity for deep work and reflection</label>
+          <div class="scale-group">
+            <div class="scale-item">
+              <label>1 = Depleted / running on empty &nbsp;&nbsp; 10 = Energized and resourced</label>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <input type="range" name="energy_score" min="1" max="10" value="5"
+                  oninput="this.nextElementSibling.textContent = this.value">
+                <span class="scale-value">5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn btn-ghost" onclick="prevSection(4)">&larr; Back</button>
+        <span class="step-counter">Step 4 of 6</span>
+        <button type="button" class="btn btn-dark" onclick="nextSection(4)">Continue &rarr;</button>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════
+         SECTION 5 — COACHING HISTORY
+    ══════════════════════ -->
+    <div class="form-section" id="section-5">
+      <span class="section-label">Section 5 of 6</span>
+      <h2 class="section-title">Previous <em>Experience</em></h2>
+      <p class="section-intro">Understanding your history helps me meet you where you are — and build on what's come before.</p>
+
+      <div class="form-fields">
+        <div class="form-group">
+          <label>Have you worked with a coach before?</label>
+          <div class="check-group inline" style="margin-top:0.5rem;">
+            <label class="check-item"><input type="radio" name="coaching_history" value="Yes, extensively"><span>Yes, extensively</span></label>
+            <label class="check-item"><input type="radio" name="coaching_history" value="Yes, briefly"><span>Yes, briefly</span></label>
+            <label class="check-item"><input type="radio" name="coaching_history" value="No, this is my first time"><span>No, this is my first time</span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prev_coaching">If yes — what was most valuable about that experience? What was missing?</label>
+          <textarea id="prev_coaching" name="prev_coaching" class="short" placeholder="What worked, what didn't, what you'd want to be different this time..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>What other personal development practices do you currently have? (Select all that apply)</label>
+          <div class="check-group" style="margin-top:0.5rem;">
+            <label class="check-item"><input type="checkbox" name="practices" value="Meditation or mindfulness"><span>Meditation or mindfulness</span></label>
+            <label class="check-item"><input type="checkbox" name="practices" value="Therapy or counselling"><span>Therapy or counselling</span></label>
+            <label class="check-item"><input type="checkbox" name="practices" value="Journaling"><span>Journaling</span></label>
+            <label class="check-item"><input type="checkbox" name="practices" value="Physical practice (yoga, exercise, etc.)"><span>Physical practice (yoga, movement, exercise)</span></label>
+            <label class="check-item"><input type="checkbox" name="practices" value="Retreats or immersive experiences"><span>Retreats or immersive experiences</span></label>
+            <label class="check-item"><input type="checkbox" name="practices" value="Reading and self-study"><span>Reading and self-study</span></label>
+            <label class="check-item"><input type="checkbox" name="practices" value="None at the moment"><span>None at the moment</span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="learning_edge">What has been the most significant inner shift or realization you've had in the last few years?</label>
+          <textarea id="learning_edge" name="learning_edge" class="medium" placeholder="A moment of real growth, change, or seeing yourself differently..."></textarea>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn btn-ghost" onclick="prevSection(5)">&larr; Back</button>
+        <span class="step-counter">Step 5 of 6</span>
+        <button type="button" class="btn btn-dark" onclick="nextSection(5)">Continue &rarr;</button>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════
+         SECTION 6 — ANYTHING ELSE
+    ══════════════════════ -->
+    <div class="form-section" id="section-6">
+      <span class="section-label">Section 6 of 6</span>
+      <h2 class="section-title">Final <em>Thoughts</em></h2>
+      <p class="section-intro">Last few questions — and then you're done. These are often the most important ones.</p>
+
+      <div class="form-fields">
+        <div class="form-group">
+          <label for="readiness">What makes you feel ready for this now — as opposed to six months ago, or six months from now?</label>
+          <textarea id="readiness" name="readiness" class="medium" placeholder="What's shifted? What's calling you forward?"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="resistance">What part of you — if any — is hesitant or resistant about this commitment?</label>
+          <p class="hint">Naming resistance is often where the real work begins.</p>
+          <textarea id="resistance" name="resistance" class="short" placeholder="Be honest — this is a safe space."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="jonathan_should_know">Is there anything else you'd like me to know before we begin — about you, your situation, or what you need from this work?</label>
+          <textarea id="jonathan_should_know" name="jonathan_should_know" class="medium" placeholder="Anything that feels important to share..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>How did you hear about Jonathan?</label>
+          <select name="referral_source">
+            <option value="" disabled selected>Select one</option>
+            <option>Personal referral</option>
+            <option>LinkedIn</option>
+            <option>Instagram</option>
+            <option>The Deep Coach Podcast</option>
+            <option>Center for Transformational Coaching</option>
+            <option>Google search</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn btn-ghost" onclick="prevSection(6)">&larr; Back</button>
+        <span class="step-counter">Step 6 of 6</span>
+        <button type="submit" class="btn btn-dark">Submit Intake &rarr;</button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- COMPLETE STATE -->
+  <div class="form-complete" id="form-complete">
+    <div class="complete-mark">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8966E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h2>Intake <em>Received</em></h2>
+    <p>Thank you for taking the time to complete this — I can already tell it will make a real difference in how we begin. I'll be in touch shortly to confirm next steps.</p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="intake-footer">
+  <p>&copy; 2026 Jonathan Hermida. Your responses are kept strictly confidential.</p>
+</footer>
+
+
+<script>
+  const TOTAL = 6;
+
+  function updateProgress(current) {
+    const pct = ((current - 1) / TOTAL) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }
+
+  function nextSection(current) {
+    // Basic validation
+    const section = document.getElementById('section-' + current);
+    const required = section.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      if (!el.value.trim()) {
+        el.style.borderColor = '#c0392b';
+        valid = false;
+      } else {
+        el.style.borderColor = '';
+      }
+    });
+    if (!valid) return;
+
+    document.getElementById('section-' + current).classList.remove('active');
+    document.getElementById('section-' + (current + 1)).classList.add('active');
+    updateProgress(current + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function prevSection(current) {
+    document.getElementById('section-' + current).classList.remove('active');
+    document.getElementById('section-' + (current - 1)).classList.add('active');
+    updateProgress(current - 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Clear red borders on input
+  document.querySelectorAll('[required]').forEach(el => {
+    el.addEventListener('input', () => { el.style.borderColor = ''; });
+  });
+
+  // Handle submission
+  const form = document.getElementById('intake-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('section-6').classList.remove('active');
+        document.getElementById('form-complete').classList.add('active');
+        document.getElementById('progress-fill').style.width = '100%';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert('Something went wrong. Please try again or email Jonathan directly.');
+      }
+    } catch {
+      alert('Something went wrong. Please try again or email Jonathan directly.');
+    }
+  });
+</script>
+
+</body>
+</html>
