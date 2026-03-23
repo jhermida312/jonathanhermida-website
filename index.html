@@ -489,11 +489,12 @@
       padding: 0.75rem 1.5rem;
       border: 1px solid var(--accent-light);
       border-radius: 2px;
-      opacity: 0.4;
-      transition: opacity 0.25s;
+      opacity: 0.55;
+      filter: grayscale(85%);
+      transition: opacity 0.3s, filter 0.3s;
       background: var(--white);
     }
-    .logo-chip:hover { opacity: 0.75; }
+    .logo-chip:hover { opacity: 0.9; filter: grayscale(0%); }
     .logo-chip svg {
       height: 24px;
       width: auto;
@@ -901,41 +902,61 @@
     <span class="label" style="text-align:center;">Supporting Leaders At</span>
     <div class="logos-row">
 
+      <!-- Google -->
+      <div class="logo-chip" title="Google">
+        <svg viewBox="0 0 92 30" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+          <text y="26" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="400" letter-spacing="0.3">
+            <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
+          </text>
+        </svg>
+      </div>
+
       <!-- BCG -->
       <div class="logo-chip" title="Boston Consulting Group">
-        <svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Boston Consulting Group">
-          <text x="0" y="22" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#1C1A17" letter-spacing="1">BCG</text>
+        <svg viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg" aria-label="Boston Consulting Group">
+          <text x="1" y="27" font-family="'Arial Black',Arial,Helvetica,sans-serif" font-size="27" font-weight="900" fill="#006629" letter-spacing="1">BCG</text>
         </svg>
       </div>
 
       <!-- Salesforce -->
       <div class="logo-chip" title="Salesforce">
-        <svg viewBox="0 0 130 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Salesforce">
-          <text x="0" y="21" font-family="-apple-system, sans-serif" font-size="17" font-weight="400" fill="#1C1A17" letter-spacing="0.3">salesforce</text>
+        <svg viewBox="0 0 148 44" xmlns="http://www.w3.org/2000/svg" aria-label="Salesforce">
+          <!-- Cloud silhouette -->
+          <path d="M38,10 C39.8,7.8 42.6,6.4 45.8,6.4 C49.8,6.4 53.3,8.7 55.2,12.1 C56.7,11.4 58.4,11 60.2,11 C66.8,11 72.2,16.4 72.2,23 C72.2,29.6 66.8,35 60.2,35 H18 C12.2,35 7.5,30.3 7.5,24.5 C7.5,19.4 11.2,15.2 16,14.4 C16.5,10.5 22.8,7.4 29.5,8.6 C31.5,8.9 35,9.2 38,12.2 z" fill="#00A1E0"/>
+          <!-- salesforce wordmark -->
+          <text x="80" y="28" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#00A1E0" letter-spacing="0.2">salesforce</text>
         </svg>
       </div>
 
       <!-- Meta -->
       <div class="logo-chip" title="Meta">
-        <svg viewBox="0 0 70 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Meta">
-          <text x="0" y="21" font-family="-apple-system, sans-serif" font-size="19" font-weight="700" fill="#1C1A17" letter-spacing="0.2">Meta</text>
+        <svg viewBox="0 0 110 32" xmlns="http://www.w3.org/2000/svg" aria-label="Meta">
+          <!-- Infinity / loop mark (lemniscate approximation) -->
+          <path d="M28,16 C28,10 24,7 20,7 C16,7 12,10 12,16 C12,22 16,25 20,25 C24,25 28,22 28,16 C28,10 32,7 36,7 C40,7 44,10 44,16 C44,22 40,25 36,25 C32,25 28,22 28,16 Z" fill="none" stroke="#0082FB" stroke-width="3.5"/>
+          <!-- Meta text -->
+          <text x="54" y="22" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#1C2B33" letter-spacing="0.3">Meta</text>
         </svg>
       </div>
 
       <!-- Deutsche Bank -->
       <div class="logo-chip" title="Deutsche Bank">
-        <svg viewBox="0 0 150 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Deutsche Bank">
-          <!-- DB square mark -->
-          <rect x="0" y="3" width="22" height="22" fill="#1C1A17"/>
-          <text x="3" y="20" font-family="Georgia, serif" font-size="14" font-weight="700" fill="white">db</text>
-          <text x="28" y="20" font-family="-apple-system, sans-serif" font-size="13" font-weight="500" fill="#1C1A17" letter-spacing="0.2">Deutsche Bank</text>
+        <svg viewBox="0 0 148 34" xmlns="http://www.w3.org/2000/svg" aria-label="Deutsche Bank">
+          <!-- Square border mark -->
+          <rect x="1" y="2" width="30" height="30" fill="none" stroke="#0018A8" stroke-width="2.5"/>
+          <!-- Diagonal slash inside (top-right to bottom-left direction) -->
+          <line x1="7" y1="28" x2="25" y2="6" stroke="#0018A8" stroke-width="3" stroke-linecap="round"/>
+          <!-- Deutsche Bank text -->
+          <text x="40" y="22" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-weight="500" fill="#0018A8" letter-spacing="0.2">Deutsche Bank</text>
         </svg>
       </div>
 
-      <!-- Google -->
-      <div class="logo-chip" title="Google">
-        <svg viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
-          <text x="0" y="22" font-family="Georgia, serif" font-size="22" font-weight="400" fill="#1C1A17" letter-spacing="0.5">Google</text>
+      <!-- McDonald's -->
+      <div class="logo-chip" title="McDonald's">
+        <svg viewBox="0 0 52 38" xmlns="http://www.w3.org/2000/svg" aria-label="McDonald's">
+          <!-- Left arch -->
+          <path d="M7,36 L7,14 Q7,2 16,2 Q24,2 24,14 L24,36" fill="none" stroke="#FFC72C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Right arch -->
+          <path d="M45,36 L45,14 Q45,2 36,2 Q28,2 28,14 L28,36" fill="none" stroke="#FFC72C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
 
