@@ -525,6 +525,63 @@
     }
 
     /* =====================
+       TRAINING & CERTIFICATIONS
+    ===================== */
+    .certs-block {
+      margin-top: 4rem;
+    }
+    .certs-block .label {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .cert-card {
+      background: var(--white);
+      border: 1px solid var(--accent-light);
+      border-radius: 2px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .cert-badge {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      margin-bottom: 1.25rem;
+    }
+    .cert-name {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+    .cert-issuer {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+    .cert-blurb {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    @media (max-width: 680px) {
+      .certs-grid { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    /* =====================
        FAMILY MOMENT
     ===================== */
     .family-section {
@@ -1056,6 +1113,25 @@
         <div class="cred-label">Years of Deep Inner Work</div>
       </div>
     </div>
+
+    <div class="certs-block fade">
+      <span class="label">Training &amp; Certifications</span>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <img src="icf-pcc-badge.png" alt="ICF Professional Certified Coach badge" class="cert-badge">
+          <div class="cert-name">Professional Certified Coach (PCC)</div>
+          <div class="cert-issuer">International Coaching Federation</div>
+          <p class="cert-blurb">An advanced credential from the International Coaching Federation (ICF).</p>
+        </div>
+        <div class="cert-card">
+          <img src="ctc-dtc-badge.png" alt="Certified Deep Transformational Coach badge" class="cert-badge">
+          <div class="cert-name">Certified Deep Transformational Coach</div>
+          <div class="cert-issuer">Center for Transformational Coaching</div>
+          <p class="cert-blurb">Advanced certification in the Deep Coach Method&trade; &mdash; the framework I steward as Managing Director of the Center.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
